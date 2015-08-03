@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox id="master-vbox" width="100%" style="padding: 20px;">
+    <hbox width="100%">
+        <grid id="form-fields" width="400" columns="2">
+            <text text="UIN" />
+            <hbox>
+                <textinput id="uin-input" width="250" />
+                <button id="load-button" text="Load" />
+            </hbox>
+            <text text="First Name" />
+            <hbox>
+                <textinput id="first-name-input" width="250" />
+                <button id="load-first-button" text="Load" />
+            </hbox>
+            <text text="Last Name" />
+            <hbox>
+                <textinput id="last-name-input" width="250" />
+                <button id="load-last-button" text="Load" />
+            </hbox>
+            <text text="Email" />
+            <hbox>
+                <textinput id="email-input" width="250" />
+                <button id="paste-email-button" text="Paste" />
+            </hbox>
+            <text text="Image" />
+            <hbox>
+                <textinput id="image-input" width="250" />
+                <button id="paste-image-button" text="Paste" />
+            </hbox>
+            <text text="Classes" />
+            <hbox width="325" height="100">
+                <scrollview width="275" height="100">
+                    <vbox id="courses-scrollview" />
+                </scrollview>
+                <button id="add-course-button" width="50" height="100" text="+" />
+            </hbox>
+            <text text="Office Hours" />
+            <hbox width="325" height="100">
+                <scrollview width="275" height="100">
+                    <vbox id="hours-scrollview" />
+                </scrollview>
+                <button id="add-hours-button" width="50" height="100" text="+" />
+            </hbox>
+        </grid>
+        <listview id="name-listview" width="100%" height="100%" />
+<!--    <textinput id="html-output" width="100%" height="300" multiline="true" />    -->
+    </hbox>
+    <hbox>
+        <button id="submit-button" text="Submit" />
+        <button id="remove-button" text="Remove PT" />
+        <button id="clear-button"  text="Clear Fields" />
+        <button id="generate-button" text="Generate HTML" />
+    </hbox>
+</vbox>
