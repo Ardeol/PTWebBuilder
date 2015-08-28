@@ -21,7 +21,7 @@
     <ndll name="systools" haxelib="systools" />
 	
 	<!-- assets -->
-	<icon path="assets/openfl.svg" />
+	<icon path="assets/icon.svg" />
     <assets path="assets/data" rename="data" />
 	<assets path="assets/img" rename="img" />
     <assets path="assets/xml" rename="xml" />

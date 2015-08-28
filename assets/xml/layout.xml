@@ -4,27 +4,27 @@
         <grid id="form-fields" width="400" columns="2">
             <text text="UIN" />
             <hbox>
-                <textinput id="uin-input" width="250" />
+                <smarttextinput id="uin-input" width="250" />
                 <button id="load-button" text="Load" />
             </hbox>
             <text text="First Name" />
             <hbox>
-                <textinput id="first-name-input" width="250" />
+                <smarttextinput id="first-name-input" width="250" />
                 <button id="load-first-button" text="Load" />
             </hbox>
             <text text="Last Name" />
             <hbox>
-                <textinput id="last-name-input" width="250" />
+                <smarttextinput id="last-name-input" width="250" />
                 <button id="load-last-button" text="Load" />
             </hbox>
             <text text="Email" />
             <hbox>
-                <textinput id="email-input" width="250" />
+                <smarttextinput id="email-input" width="250" />
                 <button id="paste-email-button" text="Paste" />
             </hbox>
             <text text="Image" />
             <hbox>
-                <textinput id="image-input" width="250" />
+                <smarttextinput id="image-input" width="250" />
                 <button id="paste-image-button" text="Paste" />
             </hbox>
             <text text="Classes" />

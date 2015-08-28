@@ -1,5 +1,10 @@
 package;
 
+import openfl.Lib;
+import openfl.events.Event;
+import openfl.events.KeyboardEvent;
+import openfl.ui.Keyboard;
+
 import haxe.ui.toolkit.controls.Button;
 import haxe.ui.toolkit.core.XMLController;
 import haxe.ui.toolkit.core.Component;
@@ -14,7 +19,7 @@ import systools.Clipboard;
 
 /** MainController Class
  *  @author  Timothy Foster
- *  @version 0.00.150802
+ *  @version 0.01.150823
  *
  *  The entirety of the UI interface is located here.  There should only be
  *  one MainController ever created, so behavior is undefined if more than
@@ -49,6 +54,12 @@ class MainController extends XMLController {
         attachEvent(ID.GENERATE, UIEvent.MOUSE_UP, generateHTML);
         attachEvent(ID.ADD_COURSE, UIEvent.MOUSE_UP, addCourse);
         attachEvent(ID.ADD_HOURS, UIEvent.MOUSE_UP, addHours);
+		
+	//  Added in 0.01.150823
+		attachEnterEvent(getComponent(ID.UIN), loadUIN);
+		attachEnterEvent(getComponent(ID.LASTNAME), loadName.bind(_, false));
+		attachEnterEvent(getComponent(ID.FIRSTNAME), loadName.bind(_, true));
+	//  End added
         
         attachEvent(ID.NAME_LIST, UIEvent.CHANGE, function(e) {
             var listview = getComponentAs(ID.NAME_LIST, ListView);
@@ -75,9 +86,17 @@ class MainController extends XMLController {
  *  =========================================================================*/
     private var app:PTWebBuilder;
     private var curPTList:Array<PeerTeacher>; // For PT access via list; infinitely faster than app.ptsByAlpha()
+	private var ctrlDown:Bool;
  
 /*  Private Methods
  *  =========================================================================*/
+    private function attachEnterEvent(c:Component, f:Dynamic):Void {
+		c.addEventListener(KeyboardEvent.KEY_DOWN, function(e:KeyboardEvent) {
+			if (e.keyCode == Keyboard.ENTER)
+				f(e);
+		});
+	}
+    
 /**
  *  @private
  *  Loads the PT based on the UIN field.
@@ -294,7 +313,7 @@ class MainController extends XMLController {
             pt.courses.push(cast(course, Component).text);
             
         var hours = getComponent(ID.HOURS);
-        pt.hours.splice(0, pt.courses.length);
+        pt.hours.splice(0, pt.hours.length);
         for (hour in hours.children) {
             var txt = cast(hour, Component).text;
             var patt = ~/([MTWRFSu]+)\s(.*)/;

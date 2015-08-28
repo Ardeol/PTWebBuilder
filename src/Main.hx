@@ -4,13 +4,10 @@ import openfl.Lib;
 import openfl.display.Sprite;
 
 import haxe.ui.toolkit.core.Toolkit;
+import haxe.ui.toolkit.core.ClassManager;
 import haxe.ui.toolkit.controls.popups.Popup;
 import haxe.ui.toolkit.themes.GradientTheme;
 
-/**
- * ...
- * @author Timothy Foster
- */
 class Main extends Sprite {
     
     public var app:PTWebBuilder;
@@ -19,6 +16,7 @@ class Main extends Sprite {
 		super();
         
         Toolkit.theme = new GradientTheme();
+		ClassManager.instance.registerComponentClass(SmartTextInput, "smarttextinput");
         Toolkit.init();
         Toolkit.setTransitionForClass(Popup, "none");
         
